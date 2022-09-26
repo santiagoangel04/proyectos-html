@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabla de mul</title>
+</head>
+<body>
+    <div>
+        <input type="number " id="tabla" placeholder="Numero de la tabla"/>
+        <!--Generar una accion con el boton-->
+        <button type="button" id="generar" onclick="generarTabla()">
+            Generar tabla
+        </button>
+    </div>
+    <div id="resultados">
+
+    </div>
+    <!---para agregar scripts de otros lenguajes utilizamos-->
+    <script>
+        function generarTabla(){
+            var tabla =document.getElementById("tabla")
+            var resultados =document.getElementById("resultados")
+            var numeroTabla=tabla.value
+            var salida = "<strong>Tabla de multiplicar del número </strong>: " + numeroTabla + "<br><br>"
+            for (var i =1;i<= 10; i++){
+                salida += i + "x" + numeroTabla + "=" + (i *numeroTabla) + "<br>"
+            }
+            /* agregamos un elemento html
+            este elemento nos arrojara la salida en este html */
+            resultados.innerHTML=salida;
+        }
+    </script>
+</body>
+</html>
