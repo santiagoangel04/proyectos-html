@@ -1,46 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADM Fincas</title>
 </head>
-<h1>Listado de fincas</h1>
+
 <body>
-    <button>Agregar finca</button>
-    <!--salto de linea-->
-    <br><br>
-    <!--The <div> tag define la divicion o seccion en un documento html-->
-    <div>
-        <!--encabezado nuevo-->
-        <h2>
-            <!--creacion de formulario-->
-            <!--AGREGAR EL METODO QUE ESTE MANERARA, en este caso es pos: actualizar-->
-            <form action="" method="post">
-                <!--entrada en html con su tipo de variable-->
-                <!--forma de cerrar />-->
-                <input type="number" placeholder="Farm id"/>
-                <br>
-                <input type="text" placeholder="Farm Address"/>
-                <br>
-                <input type="text" placeholder="Farm Exension"/>
-                <br>
-                <input type="number" placeholder="Farm Category_id"/>
-                <br>
-                <input type="text" placeholder="Farm Name"/>
-                <br>
-                <!--se agregan botones: reset, submit, delete-->
-                <button type="submit">Guardar</button>
-                <button type="reset">Limpiar</button>
-                <br><br>
-            </form>
-        </h2>
+    <h1>Listado de Fincas</h1>
+    <button>Agregar Fincas</button>
+    <br>
+    <!--AGREGAMOS UN IDENTICFICADOR LLAMADO ID-->
+    <!--se agregan los nuevos valores para el formato-->
+    <div id="nuevo"> 
+        <h2>Nueva Finca</h2> 
+        <form action="" method="post">
+            <input type="number" placeholder="Farm id"/>
+            <br>
+            <input type="text" placeholder="Farm address"/>
+            <br>
+            <input type="number" placeholder="Farm exension"/>
+            <br>
+            <input type="number" placeholder="Farm categoryId"/>
+            <br>
+            <input type="text" placeholder="Farm name"/>
+            <br><br>
+            <button id="nuevoGuardar">Guardar</button>
+            <button id="nuevoCancelar">Cancelar</button>  
+        </form>
     </div>
+
+    <!---arbol dom es la forma de organizar una pagina compuesta por html-->
+
+    <br>
+    <!--salto de linea-->
+    <!--The <div> tag define la divicion o seccion en un documento html-->
+    <div id="modificar">
+        <!--encabezado nuevo-->
+        <!--creacion de formulario-->
+        <!--AGREGAR EL METODO QUE ESTE MANERARA, en este caso es pos: actualizar-->
+        <h2>Datos de la Finca</h2>
+        <form action="" method="post">
+            <input type="number" placeholder="Farm id"/>
+            <br>
+            <input type="text" placeholder="Farm address"/>
+            <br>
+            <input type="number" placeholder="Farm exension"/>
+            <br>
+            <input type="number" placeholder="Farm categoryId"/>
+            <br>
+            <input type="text" placeholder="Farm name"/>
+            <br><br>
+            <button id="modificarGuardar">Guardar</button>
+            <button id="modificarCancelar">Cancelar</button>   
+        </form>
+    </div>
+
+    <br>
+    <div id="borrar">
+        <!--preguntas acerca de las listas-->
+        <h2>Desea borrar la información de la finca: XXXXXXX</h2>
+        <button id="borrarGuardar">Guardar</button>
+        <button id="borrarCancelar">Cancelar</button> 
+    </div>
+    <br>
+
     <!--Tipo de borde tabla-->
-    <table border="2">
+    <table id="tabla" border="1">
         <thead>
         <!--formato de tabla-->
-        <tr>
-            <!--columnas-->
-            <th>Id</th> 
+            <tr>
+                <!--columnas-->
+                <th>Id</th> 
                 <th>Address</th>
                 <th>Exenxion</th>
                 <th>Category_id</th>
@@ -50,83 +82,13 @@
             </tr>
         </thead>
         <!--cuerpo de la tabla-->
-        <tbody>
+        <tbody id="registros">
             <tr>
                 <td>3</td>
                 <td>DIRECCION 3</td>
                 <td>3</td>
                 <td>2</td>
                 <td>HACIENDA 3</td>
-                <td><button>Modificar finca</button>
-                    <button>Borrar finca</button>
-                </td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>DIRECCION 4</td>
-                <td>4</td>
-                <td>2</td>
-                <td>HACIENDA 4</td>
-                <td><button>Modificar finca</button>
-                    <button>Borrar finca</button>
-                </td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>DIRECCION 5</td>
-                <td>5</td>
-                <td>2</td>
-                <td>HACIENDA 5</td>
-                <td><button>Modificar finca</button>
-                    <button>Borrar finca</button>
-                </td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>DIRECCION 6</td>
-                <td>6</td>
-                <td>3</td>
-                <td>HACIENDA 6</td>
-                <td><button>Modificar finca</button>
-                    <button>Borrar finca</button>
-                </td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>DIRECCION 7</td>
-                <td>7</td>
-                <td>3</td>
-                <td>HACIENDA 7</td>
-                <td><button>Modificar finca</button>
-                    <button>Borrar finca</button>
-                </td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>DIRECCION 8</td>
-                <td>8</td>
-                <td>4</td>
-                <td>HACIENDA 8</td>
-                <td><button>Modificar finca</button>
-                    <button>Borrar finca</button>
-                </td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>DIRECCION 9</td>
-                <td>9</td>
-                <td>5</td>
-                <td>HACIENDA 9</td>
-                <td><button>Modificar finca</button>
-                    <button>Borrar finca</button>
-                </td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>DIRECCION 10</td>
-                <td>10</td>
-                <td>5</td>
-                <td>HACIENDA 10</td>
                 <td><button>Modificar finca</button>
                     <button>Borrar finca</button>
                 </td>
