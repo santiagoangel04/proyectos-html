@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--importamos bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <title>App fincas</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Nueva finca</h1>
+        <div id="nuevo">
+            <div class="form-group">
+                <!--Los labels son alas etiquetas que señalaran las entradas de caracters dentro de los inputs-->
+                <label for="id">Farm id</label>
+                <input type="text" class="form-control" id="id" aria-describedby="idHelp" placeholder="Farm id">
+            </div>
+            <div class="form-group">
+                <label for="developer">Address</label>
+                <input type="number" class="form-control" id="address" placeholder="Address">
+            </div>
+            <div class="form-group">
+                <label for="minage">Exension</label>
+                <input type="number" class="form-control" id="exension" placeholder="exension">
+            </div>
+            <div class="form-group">
+                <label for="categoryId">Farm categoryId</label>
+                <input type="number" class="form-control" id="categoryId" placeholder="farm name">
+            </div>
+            <button class="btn btn-primary" id="nuevoGuardar" onclick="guardarNuevo()">Guardar</button> <!-- boton guardar el cual escondera algunas partes-->
+            <button class="btn btn btn-secondary" id="nuevoCancelar" onclick="guardarNuevo()">Cancelar</button>
+        </div>
+        <div id="modificar">
+            <h2>Datos de la finca</h2>
+            <div class="form-group">
+                <label for="idModif">Farm id</label>
+                <input type="text" class="form-control" id="idModif" placeholder="Address">
+            </div>
+            <div class="form-group">
+                <label for="addresModif">Address</label>
+                <input type="text" class="form-group" id="addresModif" placeholder="Address">
+            </div>
+            <div>
+                <label for="minageModif">Exension</label>
+                <input type="number" class="form-control">
+            </div>
+        </div>
+</body>
+</html>
