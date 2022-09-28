@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Nueva finca</h1>
+        <h2>Nueva finca</h2>
         <div id="nuevo">
             <div class="form-group">
                 <!--Los labels son alas etiquetas que señalaran las entradas de caracters dentro de los inputs-->
@@ -20,7 +20,7 @@
             </div>
             <div class="form-group">
                 <label for="developer">Address</label>
-                <input type="number" class="form-control" id="address" placeholder="Address">
+                <input type="text" class="form-control" id="address" placeholder="Address">
             </div>
             <div class="form-group">
                 <label for="minage">Exension</label>
@@ -28,7 +28,11 @@
             </div>
             <div class="form-group">
                 <label for="categoryId">Farm categoryId</label>
-                <input type="number" class="form-control" id="categoryId" placeholder="farm name">
+                <input type="number" class="form-control" id="categoryId" placeholder="Farm categoryId">
+            </div>
+            <div class="form-group">
+                <label for="name">Farm name</label>
+                <input type="text" class="form-control" id="name" placeholder="Farm name">
             </div>
             <button class="btn btn-primary" id="nuevoGuardar" onclick="guardarNuevo()">Guardar</button> <!-- boton guardar el cual escondera algunas partes-->
             <button class="btn btn btn-secondary" id="nuevoCancelar" onclick="guardarNuevo()">Cancelar</button>
@@ -37,11 +41,11 @@
             <h2>Datos de la finca</h2>
             <div class="form-group">
                 <label for="idModif">Farm id</label>
-                <input type="text" class="form-control" id="idModif" placeholder="Address">
+                <input type="text" class="form-control" id="idModif" aria-describedby="idHelp" placeholder="Farm id">
             </div>
             <div class="form-group">
-                <label for="addresModif">Address</label>
-                <input type="text" class="form-group" id="addresModif" placeholder="Address">
+                <label for="addressModif">Address</label>
+                <input type="text" class="form-control" id="addressModif" placeholder="Address">
             </div>
             <div class="form-group">
                 <label for="minageModif">Exension</label>
@@ -49,8 +53,9 @@
             </div>
             <div class="form-group">
                 <label for="categoryIdModif">Farm categoryId</label>
-                <input type="number" class="form-control" id="categoryIdModif" placeholder="Farm name">
+                <input type="number" class="form-control" id="categoryIdModif" placeholder="Farm categoryId">
             </div>
+
             <div class="form-group">
                 <label for="nameModif">Farm name</label>
                 <input type="text" class="form-control" id="nameModif" placeholder="Farm name">
@@ -62,7 +67,7 @@
         <div id="borrar">
             <h2>Desea borrar la informacion de la fincas: XXXXXXX</h2>
             <button id="borrarGuardar" class="btn btn-primary" onclick="guardarBorrar()">Guardar</button>
-            <button id="borrarCancelar" class="btn btn-secundary" onclick="guardarBorrar()">Cancelar</button>
+            <button id="borrarCancelar" class="btn btn-secondary" onclick="guardarBorrar()">Cancelar</button>
         </div>
 
         <div id="datos">
@@ -97,8 +102,9 @@
                 </tbody>
             </table>
         </div>
-        <!--se agrega el script-->
-        <script src="js\finca.js">    
-        </script>
+    </div>
+    <!--se agrega el script-->
+    <script src="js\finca.js">    
+    </script>
 </body>
 </html>
