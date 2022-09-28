@@ -38,7 +38,7 @@ function editar(id) {
     //1 crear un objeto XMLHttpRequest
     let peticion = new XMLHttpRequest();
     let url =
-    "https://g204ecfa60e021a-g3qlhq6a8n5r6dq0.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/farm/farm";
+    "https://g0cefd84e954756-fug8n6nxtxkblfbfarm.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/farm/farm";
   
     /*
     2 propiedad onreadystatechange asigna a una funcion
@@ -89,7 +89,7 @@ function editar(id) {
 }
   
   function guardarEditar() {
-    datos.style.display = "block";
+    datos_finca.style.display = "block";
     nuevo.style.display = "none";
     modificar.style.display = "none";
     borrar.style.display = "none";
