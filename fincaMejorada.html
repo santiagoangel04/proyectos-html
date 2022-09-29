@@ -11,63 +11,88 @@
 </head>
 <body>
     <div class="container">
-        <h2>Nueva finca</h2>
+        <!--<h2>Nueva finca</h2>-->
         <div id="nuevo">
+            <br>
+            <h2>Nueva finca</h2>
+            <br>
             <div class="form-group">
                 <!--Los labels son alas etiquetas que señalaran las entradas de caracters dentro de los inputs-->
-                <label for="id">Farm id</label>
-                <input type="text" class="form-control" id="id" aria-describedby="idHelp" placeholder="Farm id">
+                <label for="id">Farm id</label><!--for asocia el campo de la etiqueta con el cuadro de entrada-->
+                <input type="number" class="form-control" id="id" placeholder="Farm id">
             </div>
+            <br>
             <div class="form-group">
-                <label for="developer">Address</label>
+                <label for="address">Address</label>
                 <input type="text" class="form-control" id="address" placeholder="Address">
             </div>
+            <br>
             <div class="form-group">
-                <label for="minage">Exension</label>
+                <label for="exension">Exension</label>
                 <input type="number" class="form-control" id="exension" placeholder="exension">
             </div>
+            <br>
             <div class="form-group">
                 <label for="categoryId">Farm categoryId</label>
                 <input type="number" class="form-control" id="categoryId" placeholder="Farm categoryId">
             </div>
+            <br>
             <div class="form-group">
                 <label for="name">Farm name</label>
                 <input type="text" class="form-control" id="name" placeholder="Farm name">
             </div>
+            <br><br>
             <button class="btn btn-primary" id="nuevoGuardar" onclick="guardarNuevo()">Guardar</button> <!-- boton guardar el cual escondera algunas partes-->
-            <button class="btn btn btn-secondary" id="nuevoCancelar" onclick="guardarNuevo()">Cancelar</button>
+            <button class="btn btn btn-secondary" id="nuevoCancelar" onclick="inicial()">Cancelar</button>
         </div>
+        <br>
+
         <div id="modificar">
             <h2>Datos de la finca</h2>
+            <br>
             <div class="form-group">
-                <label for="idModif">Farm id</label>
-                <input type="text" class="form-control" id="idModif" aria-describedby="idHelp" placeholder="Farm id">
+                <label id="idLabel" for="idModif"></label>
+                <br>
+                <input type="hidden" class="form-control" id="idModif" placeholder="Farm id"><!--hidden oculta la celda de farm id-->
             </div>
             <div class="form-group">
                 <label for="addressModif">Address</label>
-                <input type="text" class="form-control" id="addressModif" placeholder="Address">
+                <input id="addressModif" type="text" class="form-control" placeholder="Address">
             </div>
+            <br>
             <div class="form-group">
-                <label for="minageModif">Exension</label>
+                <label for="exensionModif">Exension</label>
                 <input type="number" class="form-control" id="exensionModif" placeholder="exension">
             </div>
+            <br>
             <div class="form-group">
                 <label for="categoryIdModif">Farm categoryId</label>
                 <input type="number" class="form-control" id="categoryIdModif" placeholder="Farm categoryId">
             </div>
-
+            <br>
             <div class="form-group">
                 <label for="nameModif">Farm name</label>
                 <input type="text" class="form-control" id="nameModif" placeholder="Farm name">
             </div>
+            <br><br>
             <button id="nuevoGuardar" class="btn btn-primary" onclick="guardarEditar()">Guardar</button>
-            <button id="nuevoCancelar" class="btn btn-secondary" onclick="guardarEditar()">Cancelar</button>
+            <button id="nuevoCancelar" class="btn btn-secondary" onclick="inicial()">Cancelar</button>
         </div>
 
         <div id="borrar">
-            <h2>Desea borrar la informacion de la fincas: XXXXXXX</h2>
+            <h2>Desea borrar la informacion de la fincas:</h2>
+            <!---listas ordenadas y no ordenadas-->
+            <input type="hidden" id="idDelete">
+            <ol class="list-group list-group-numbered">
+                <li id="idList" class="list-group-item"></li>
+                <li id="addressList" class="list-group-item"></li>
+                <li id="exensionList" class="list-group-item"></li>
+                <li id="category_idList" class="list-group-item"></li>
+                <li id="nameList" class="list-group-item"></li>
+            </ol>
+            <br><br>
             <button id="borrarGuardar" class="btn btn-primary" onclick="guardarBorrar()">Guardar</button>
-            <button id="borrarCancelar" class="btn btn-secondary" onclick="guardarBorrar()">Cancelar</button>
+            <button id="borrarCancelar" class="btn btn-secondary" onclick="inicial()">Cancelar</button>
         </div>
 
         <div id="datos">
