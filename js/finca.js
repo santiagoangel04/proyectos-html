@@ -75,25 +75,137 @@ function editar(id) {
 }
   
   function eliminar() {
-    nuevo.style.display = "none";
-    modificar.style.display = "none";
-    borrar.style.display = "block";
-    datos_finca.style.display = "none";
+    //1 crear un objeto XMLHttpRequest
+  let peticion = new XMLHttpRequest();
+  let url =
+    "https://g0cefd84e954756-fug8n6nxtxkblfbfarm.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/farm/farm";
+
+  /*
+  2 propiedad onreadystatechange asigna a una funcion
+  que funcion valida si la respuesta fue exitosa
+  readyState=4 y status=200, en cuyo caso obtiene la respuesta, 
+  le aplica formato y modifica la pagina o vista
+*/
+  peticion.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+
+      let respuesta = JSON.parse(this.responseText)
+
+      let idModif = respuesta.items[0].id
+      let addressModif = respuesta.items[0].address
+      let exensionModif = respuesta.items[0].exension
+      let categoryIdModif = respuesta.items[0].category_id
+      let nameModif = respuesta.items[0].name
+
+      
+      document.getElementById("idDelete").value = idModif
+      document.getElementById("idList").innerHTML = "<strong>Farm id :</strong>" + idModif
+      document.getElementById("addressList").innerHTML = "<strong>Address :</strong>" + addressModif
+      document.getElementById("exensionList").innerHTML = "<strong>Exension :</strong>" + exensionModif
+      document.getElementById("category_idList").innerHTML = "<strong>Farm categoryId :</strong>" + categoryIdModif
+      document.getElementById("nameList").innerHTML = "<strong>Farm Name :</strong>" + nameModif
+
+      nuevo.style.display = "none";
+      modificar.style.display = "none";
+      borrar.style.display = "block";
+      datos.style.display = "none";
+    }
+  };
+  peticion.open("GET", url + "/" + id, true);
+  peticion.send();
 }
   
   function guardarNuevo() {
-    datos_finca.style.display = "block";
-    nuevo.style.display = "none";
-    modificar.style.display = "none";
-    borrar.style.display = "none";
+    //recuperar la informacion ingresada en el formulario
+  let idFarm = document.getElementById("idModif").value
+  let addressFarm = document.getElementById("addressModif").value
+  let exensionFarm = document.getElementById("exensionModif").value
+  let categoryIdFarm = document.getElementById("categoryIdModif").value
+  let nameFarm = document.getElementById("nameModif").value
+
+  //creo un objeto javascript
+  let objeto = {
+    id: idFarm,
+    address: addressFarm,
+    exension: exensionFarm,
+    category_id: categoryIdFarm,
+    name: nameFarm
+  }
+
+  //convierto el objeto de javascript a formato json
+  let objetoJson = JSON.stringify(objeto)
+
+  let url =
+    "https://g0cefd84e954756-fug8n6nxtxkblfbfarm.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/farm/farm";
+
+  //1 crear un objeto XMLHttpRequest
+  let peticion = new XMLHttpRequest()
+
+  /*2 propiedad onreadystatechange asigna a una funcion
+        que funcion valida si la respuesta fue exitosa
+        readyState=4 y status=200, en cuyo caso obtiene la respuesta, 
+        le aplica formato y modifica la pagina o vista
+    */
+  peticion.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 201) {
+
+      //Configura el aspecto de la pagina
+      traerdatos()
+      inicial()
+    }
+  }
+
+  peticion.open("PUT", url, true)
+  peticion.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+  peticion.send(objetoJson)
 }
   
   function guardarEditar() {
-    datos_finca.style.display = "block";
-    nuevo.style.display = "none";
-    modificar.style.display = "none";
-    borrar.style.display = "none";
+    
+  //recuperar la informacion ingresada en el formulario
+  let idFarm = document.getElementById("idModif").value
+  let addressFarm = document.getElementById("addressModif").value
+  let exensionFarm = document.getElementById("exensionModif").value
+  let categoryIdFarm = document.getElementById("categoryIdModif").value
+  let nameFarm = document.getElementById("nameModif").value
+
+  //creo un objeto javascript
+  let objeto = {
+    id: idFarm,
+    address: addressFarm,
+    exension: exensionFarm,
+    category_id: categoryIdFarm,
+    name: nameFarm
+  }
+
+  //convierto el objeto de javascript a formato json
+  let objetoJson = JSON.stringify(objeto)
+
+  let url =
+    "https://g0cefd84e954756-fug8n6nxtxkblfbfarm.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/farm/farm";
+
+  //1 crear un objeto XMLHttpRequest
+  let peticion = new XMLHttpRequest()
+
+  /*2 propiedad onreadystatechange asigna a una funcion
+        que funcion valida si la respuesta fue exitosa
+        readyState=4 y status=200, en cuyo caso obtiene la respuesta, 
+        le aplica formato y modifica la pagina o vista
+    */
+  peticion.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 201) {
+
+      //Configura el aspecto de la pagina
+      traerdatos()
+      inicial()
+    }
+  }
+
+  peticion.open("PUT", url, true)
+  peticion.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
+  peticion.send(objetoJson)
 }
+
   
   function guardarBorrar() {
     datos_finca.style.display = "block";
@@ -156,8 +268,8 @@ function traerdatos(){
                             <td>\
                                 <button class="btn btn-outline-dark" onclick="editar(' +
             id +
-            ')">Modificar Juego</button>\
-                              <button class="btn btn-outline-dark" onclick="eliminar()">Borrar Juego</button>\
+            ')">Modificar elemento</button>\
+                              <button class="btn btn-outline-dark" onclick="eliminar()">Borrar elemento</button>\
                           </td>\
                           </tr>'; 
           }
