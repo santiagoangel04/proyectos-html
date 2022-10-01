@@ -15,10 +15,69 @@
         <a href="index.html">
             <img src="imag\blue-home-icon.png" class="card-img-start bg-info" alt="...">
         </a>
-        <div>
-            
+        <!--Usuario nuevo-->
+        <div id="nuevo_user">
+            <br>
+            <h2>Nuevo usuario</h2>
+            <br>
+            <!--campo de la id-->
+            <div class="form-group">
+                <!--etiquetas para clientes-->
+                <label for="id_user">Id </label>
+                <input type="number" class="form-control" id="id_user" placeholder="Id usuario">
+            </div>
+            <br>
+            <!--campo name-->
+            <div class="form-group">
+                <label for="name_user">Nombre </label>
+                <input type="text" class="form-control" id="name_user" placeholder="Nombre usuario">
+            </div>
+            <br>
+            <!--campo email-->
+            <div class="form-group">
+                <label for="email_user">Correo</label>
+                <input type="email" class="form-control" id="email_user" placeholder="Correo usuario">
+            </div>
+            <br>
+            <!--campo age-->
+            <div class="form-group">
+                <label for="age_user">Edad</label>
+                <input type="number" class="form-control" id="age_user" placeholder="Edad usuario">
+            </div>
+            <br><br>
+            <button class="btn btn-primary bg-success" id="nuevoGuardar" onclick="guardarNuevo()">Guardar</button>
+            <button class="btn btn-secondary bg-danger" id="nuevoCancelar" onclick="inicial()">Cancelar</button>
         </div>
-        
+        <br>
+
+        <!--parte de modificar -->
+        <div id="modificar_user">
+            <br>
+            <h2>Datos del usuario</h2>
+            <div class="form-group">
+                <label for="idUserMod"></label>
+                <input type="hidden" class="form-control" id="idUserMod" placeholder="id usuario"><!--ocultamos la celda de id-->
+                <br>
+                <div class="form-group">
+                    <label for="nameUserModif">Nombre</label>
+                    <input type="text" class="form-control" id="nameUserModif" placeholder="Nombre de usuario">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="emailUserModif">Email</label>
+                    <input type="email" class="form-control" id="emailUserModif" placeholder="Email del usuario">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="ageUserModif">Edad</label>
+                    <input type="number" class="form-control" id="ageUserModif" placeholder="edad de usuario">
+                </div>
+                <br>
+                <button id="nuevoGuardar" class="btn btn-primary bg-info" onclick="guardarEditar()">Guardar</button>
+                <button id="nuevoCancelar" class="btn btn-secundary bg-danger" onclick="inicial()">Cancelar</button>
+            </div>
+        </div>
+            
     </div>
     <script src="js\cliente.js"></script>
 </body>

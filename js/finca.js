@@ -28,7 +28,14 @@ function inicial() {
 /**
  * elementos visibles en agregar
  */
-function agregar_datos() {
+function agregar_datos() { 
+  /*
+  document.getElementById("id").value=""
+  document.getElementById("address").value=""
+  document.getElementById("exension").value=""
+  document.getElementById("categoryId").value=""
+  document.getElementById("name").value=""
+  */
   nuevo.style.display = "block"
   modificar.style.display = "none"
   borrar.style.display = "none"
@@ -117,11 +124,11 @@ function eliminar(id) {
 
 function guardarNuevo() {
   //recuperar la informacion ingresada en el formulario
-  let idFarm = document.getElementById("idModif").value
-  let addressFarm = document.getElementById("addressModif").value
-  let exensionFarm = document.getElementById("exensionModif").value
-  let categoryIdFarm = document.getElementById("categoryIdModif").value
-  let nameFarm = document.getElementById("nameModif").value
+  let idFarm = document.getElementById("id").value
+  let addressFarm = document.getElementById("address").value
+  let exensionFarm = document.getElementById("exension").value
+  let categoryIdFarm = document.getElementById("categoryId").value
+  let nameFarm = document.getElementById("name").value
 
   //creo un objeto javascript
   let objeto = {
@@ -155,7 +162,7 @@ function guardarNuevo() {
     }
   }
 
-  peticion.open("PUT", url, true)
+  peticion.open("POST", url, true)
   peticion.setRequestHeader("Content-Type", "application/json;charset=UTF-8")
   peticion.send(objetoJson)
 }
@@ -296,10 +303,10 @@ function traerdatos() {
           respuesta.items[i].name +
           '</td>\
                             <td>\
-                                <button class="btn btn-outline-dark" onclick="editar(' +
+                                <button class="btn btn-outline-dark bg-info" onclick="editar(' +
           id +
           ')">Modificar elemento</button>\
-                              <button class="btn btn-outline-dark" onclick="eliminar(' +
+                              <button class="btn btn-outline-dark bg-danger" onclick="eliminar(' +
           id + ')">Borrar elemento</button>\
                           </td>\
                           </tr>';
